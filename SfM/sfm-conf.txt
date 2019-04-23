@@ -30,7 +30,6 @@ FD recompute data :
 FD describer method :
 FD upright :
 FD describer preset :
-FD threads :
 
 # FEATURE MATCHING
 FM recompute data :

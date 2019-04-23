@@ -169,8 +169,6 @@ class PipelineBuilder(object):
                 compute_features = compute_features + " -u " + self.config_parameters["FD upright"]
             if key == "FD describer preset":
                 compute_features = compute_features + " -p " + self.config_parameters["FD describer preset"]
-            if key == "FD threads":
-                compute_features = compute_features + " -n " + self.config_parameters["FD threads"]
 
         self.pipeline.append(compute_features)
 

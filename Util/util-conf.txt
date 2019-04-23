@@ -1,22 +1,22 @@
 # GENERAL PARAMETERS
-working directory : /media/raphael/SPPHDU3/
-input : /media/raphael/SPPHDU3/video30001-0096.avi
+input : /media/raphael/SPPHDU3/y2mate.com\ -\ drone_footage_over_fannette_island_emrald_bay_in_lake_tahoe_ca_king_fire__3uI2d_53TM_1080p.mp4
+output : /media/raphael/SPPHDU3/test.mp4
 
 # OUTPUTS
-exif : 1
+exif : 0
 segment : 1
-frames : 1
-convert : 0
-
+frames : 0
+rescale : 1
 
 # SEGMENT VIDEO PARAMETERS
-start time :
-end time :
+start time : 27
+duration : 8
 
 
 # FRAMES PARAMETERS
-framerate :
-resolution :
+framerate : 1
+images : /media/raphael/SPPHDU3/out%04d.jpg
 
-# CONVERT VIDEO
-output :
+# RESOLUTION
+resolution : 1600x900
+

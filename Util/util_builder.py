@@ -9,10 +9,11 @@ class UtilBuilder(object):
         self.util_pipeline = []
         self.working_directory = ''
         self.input_file = ''
+        self.output_file = ''
         self.exif = ''
         self.segment = ''
         self.frames = ''
-        self.convert = ''
+        self.rescale = ''
 
     # Read the config file and build the dictionary of parameters
     def read_config(self):
@@ -43,23 +44,21 @@ class UtilBuilder(object):
         # Go through the dictionary and build the Util pipeline accordingly
 
         # Get the general options and desired outputs
-        self.working_directory = self.config_parameters["working directory"]
         self.input_file = self.config_parameters["input"]
+        self.output_file = self.config_parameters["output"]
         self.exif = self.config_parameters["exif"]
         self.segment = self.config_parameters["segment"]
         self.frames = self.config_parameters["frames"]
-        self.convert = self.config_parameters["convert"]
+        self.rescale = self.config_parameters["rescale"]
 
-        # set an error if the directory and file are invalid
-        if self.working_directory == '':
-            print("INVALID WORKING DIRECTORY")
-            sys.exit(0)
-        elif self.input_file == '':
-            print("INVALID INPUT FILE DIRECTORY")
+        if self.input_file == '':
+            print("INVALID INPUT FILE")
             sys.exit(0)
 
         if self.exif == '1':
             self.build_exif()
+
+        self.build_ffmpeg()
 
         return self.util_pipeline
 
@@ -67,6 +66,38 @@ class UtilBuilder(object):
     def build_exif(self):
         exif = "exiftool "+ self.input_file
         self.util_pipeline.append(exif)
+
+    def build_ffmpeg(self):
+        ffmpeg = "ffmpeg -i " + self.input_file
+        if self.segment == '1':
+            try:
+                start_stamp = self.config_parameters["start time"]
+                duration = self.config_parameters["duration"]
+            except:
+                print("INVALID SEGMENTING CONFIG")
+                sys.exit(0)
+            ffmpeg = ffmpeg + " -ss " + start_stamp + " -t " + duration
+
+        if self.rescale == '1':
+            try:
+                resolution = self.config_parameters["resolution"]
+            except:
+                print("INVALID RESCALING CONFIG")
+                sys.exit(0)
+            ffmpeg = ffmpeg + " -s " + resolution
+
+        # If we are extracting frames, extract frames, otherwise convert the video
+        if self.frames == '1':
+            try:
+                framerate = self.config_parameters["framerate"]
+                images = self.config_parameters["images"]
+            except:
+                print("INVALID FRAMES CONFIG")
+                sys.exit(0)
+            ffmpeg = ffmpeg + " -vf fps=" + framerate + " " + images
+        else :
+            ffmpeg = ffmpeg + " " + self.output_file
+        self.util_pipeline.append(ffmpeg)
 
 if __name__ == '__main__':
     print("This is the util builder. It reads the 'util-conf.txt' file and outputs the "
