@@ -1,0 +1,94 @@
+# THIS IS THE DEFAULT CONFIG FORMAT FILE
+# GENERAL PARAMETERS
+working directory : /media/raphael/SPPHDU3/RECONSTRUCTIONS/Quarry/
+image directory : /media/raphael/SPPHDU3/RECONSTRUCTIONS/Quarry/
+
+# DESIRED OUTPUTS
+pipeline type : 1
+robust reconstruction : 1
+colourised pointclouds : 1
+dense reconstruction : 1
+sparse mesh : 1
+dense mesh : 1
+refine mesh : 1
+texture mesh : 1
+
+#######################
+# PIPELINE PARAMETERS #
+#######################
+
+# IMAGE LISTING
+IL focal : 4800
+IL intrinsics :
+IL camera model :
+IL group camera model :
+IL pose prior :
+IL XYZ coordinate system :
+
+# FEATURE DESCRIPTION
+FD recompute data :
+FD describer method :
+FD upright :
+FD describer preset :
+FD threads :
+
+# FEATURE MATCHING
+FM recompute data :
+FM ratio :
+FM geometric model :
+FM video mode :
+FM pair list :
+FM nearest matching method :
+FM guided matching :
+
+# GLOBAL RECONSTRUCTION
+GR rotation averaging :
+GR translation averaging :
+GR refine intrinsics :
+GR prior usage :
+
+# INCREMENTAL RECONSTRUCTION
+IR camera model :
+IR refine intrinsics :
+IR prior usage :
+
+# ROBUST RECONSTRUCTION
+RR bundle adjustment :
+RR residual threshold :
+
+# POINT CLOUD DENSIFICATION
+DPC resolution level : 2
+DPC min resolution :
+DPC number of views :
+DPC number of views fuse :
+DPC estimate color :
+DPC estimate normals :
+DPC sample mesh :
+
+# MESH RECONSTRUCTION
+MR min point distance : 5
+MR quality factor :
+MR decimate :
+MR remove spurious :
+MR remove spikes :
+MR close holes :
+MR smooth :
+
+# MESH REFINEMENT
+MF resolution level : 4
+MF min resolution : 360
+MF max views :
+MF decimate :
+MF close holes :
+MF max face area :
+MF scales :
+MF scale step :
+MF reduce memory :
+MF alternate pair :
+
+# MESH TEXTURING
+TM resolution level : 4
+TM min resolution : 360
+TM outlier threshold :
+TM empty colour :
+TM patch packing heuristic :

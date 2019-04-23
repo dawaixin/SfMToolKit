@@ -1,0 +1,15 @@
+working directory : /media/raphael/SPPHDU3/RECONSTRUCTIONS/Quarry/
+reference file : /media/raphael/SPPHDU3/RECONSTRUCTIONS/Quarry/global_reconstruction/robust_ascii.ply
+reading file : /media/raphael/SPPHDU3/RECONSTRUCTIONS/Quarry/global_reconstruction/colourised_ascii.ply
+MinDistDataPointsFilter1 : 1.0
+RandomSamplingDataPointsFilter1 : 0.05
+MinDistDataPointsFilter2 : 1.0
+RandomSamplingDataPointsFilter2 : 0.05
+KDTreeMatcher knn : 1
+KDTreeMatcher epsilon : 3.16
+TrimmedDistOutlierFilter : 0.75
+CounterTransformationChecker : 150
+DifferentialTransformationChecker minDiffRotErr : 0.001
+DifferentialTransformationChecker minDiffTransErr : 0.01
+DifferentialTransformationChecker smoothLength : 4
+savePLY : 1

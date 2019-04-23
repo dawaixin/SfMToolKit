@@ -1,0 +1,22 @@
+# GENERAL PARAMETERS
+working directory : /media/raphael/SPPHDU3/
+input : /media/raphael/SPPHDU3/video30001-0096.avi
+
+# OUTPUTS
+exif : 1
+segment : 1
+frames : 1
+convert : 0
+
+
+# SEGMENT VIDEO PARAMETERS
+start time :
+end time :
+
+
+# FRAMES PARAMETERS
+framerate :
+resolution :
+
+# CONVERT VIDEO
+output :
