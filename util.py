@@ -24,6 +24,6 @@ if __name__ == "__main__":
     print("This is the pipeline runner. It calls the builder then invokes the elements within "
           "the pipeline at the console\n")
 
-    util = Util("./util-conf.txt")
+    util = Util("./Util/util-conf.txt")
     util.build_util()
     util.run_util()

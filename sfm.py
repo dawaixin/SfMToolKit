@@ -1,12 +1,7 @@
 import subprocess
 import sys
-
-if __name__ == "__main__":
-    import SfMTK.pipeline_builder as pb
-    import Misc as ub
-else:
-    from SfM import pipeline_builder as pb
-    from Misc import unbuffered as ub
+from SfM import pipeline_builder as pb
+from Misc import unbuffered as ub
 
 
 
@@ -39,6 +34,6 @@ if __name__ == "__main__":
     print("This is the pipeline runner. It calls the builder then invokes the elements within "
           "the pipeline at the console\n")
 
-    sfm = SfM("./sfm-conf.txt")
+    sfm = SfM("./SfM/sfm-conf.txt")
     sfm.build_pipeline()
     sfm.execute_pipeline()

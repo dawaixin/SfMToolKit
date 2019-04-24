@@ -1,7 +1,7 @@
 from tkinter import *
 from GUI.tooltip import CreateToolTip
 from tkinter.ttk import *
-from SfM.sfm import SfM
+from sfm import SfM
 from GUI.commands import load_file
 
 
@@ -228,10 +228,10 @@ class ModuleSfM(Frame):
         intrinsics_label = Label(row_il, width=20, text='Intrinsics', anchor='w')
         self.intrinsics = Entry(row_il)
         # camera model
-        models = ["1", "2", "3", "4", "5", "7"]
+        models = ["", "1", "2", "3", "4", "5", "7"]
         camera_model_label = Label(row_il2, width=20, text='Camera model', anchor='w')
         camera_model = OptionMenu(row_il2, self.camera_model, *models)
-        self.camera_model.set(models[2])
+        self.camera_model.set(models[3])
         # group camera model
         group_camera_model_chk = Checkbutton(row_il2, text="Group Camera Model", variable=self.group_camera_model)
         self.group_camera_model.set(True)
@@ -268,15 +268,15 @@ class ModuleSfM(Frame):
         upright_chk = Checkbutton(row_fd, text="Force upright", variable=self.FD_upright)
         CreateToolTip(upright_chk, "Use upright features")
         describer_method_label = Label(row_fd2, text="Describer Method", width=20, anchor='w')
-        describers = ["SIFT", "SIFT_ANATOMY", "AKAZE_FLOAT", "AKAZE_MLDB"]
+        describers = ["", "SIFT", "SIFT_ANATOMY", "AKAZE_FLOAT", "AKAZE_MLDB"]
         describer_method = OptionMenu(row_fd2, self.FD_describer_method, *describers)
         CreateToolTip(describer_method_label, "Method to use to describe an image:\nSIFT (default)\nSIFT_ANATOMY,\nAKAZE_FLOAT: AKAZE with floating point descriptors,\nAKAZE_MLDB:  AKAZE with binary descriptors")
-        self.FD_describer_method.set(describers[0])
+        self.FD_describer_method.set(describers[1])
         describer_preset_label = Label(row_fd2, text="Describer Preset", width=20, anchor='w')
-        describer_presets = ["NORMAL", "HIGH", "ULTRA"]
+        describer_presets = ["", "NORMAL", "HIGH", "ULTRA"]
         describer_preset = OptionMenu(row_fd2, self.FD_describer_presets, *describer_presets)
         CreateToolTip(describer_preset_label, "Used to control the Image_describer configuration:\nNORMAL (default)\nHIGH\nULTRA: !!Can take long time!!")
-        self.FD_describer_presets.set(describer_presets[0])
+        self.FD_describer_presets.set(describer_presets[1])
 
         row_fd.pack(side=TOP, fill=X)
         row_fd2.pack(side=TOP, fill=X)
@@ -301,7 +301,7 @@ class ModuleSfM(Frame):
         CreateToolTip(ratio_label, "Distance ratio to discard non meaningful matches")
 
         geometric_model_label = Label(row_fm, text="Geometric model", width=15, anchor='w')
-        geometric_models = ["f", "e", "h", "a", "o"]
+        geometric_models = ["", "f", "e", "h", "a", "o"]
         CreateToolTip(geometric_model_label, "f: (default) fundamental matrix\ne: essential matrix\nh: homography matrix\na: essential matrix with an angular parametrization\no: orthographic essential matrix")
         self.FM_geometric_model.set(geometric_models[0])
         geometric_model = OptionMenu(row_fm, self.FM_geometric_model, *geometric_models)
@@ -316,9 +316,9 @@ class ModuleSfM(Frame):
         CreateToolTip(browse_pair_list, "Select the Pair List file for the SfM pipeline")
 
         nearest_matching_method_label = Label(row_fm3, text="Nearest Matching Method", width=20, anchor='w')
-        nearest_matching_methods = ["AUTO", "BRUTEFORCEL2", "ANNL2", "CASCADEHASHINGL2", "FASTCASCADEHASHINGL2", "BRUTEFORCEHAMMING"]
+        nearest_matching_methods = ["", "AUTO", "BRUTEFORCEL2", "ANNL2", "CASCADEHASHINGL2", "FASTCASCADEHASHINGL2", "BRUTEFORCEHAMMING"]
         CreateToolTip(nearest_matching_method_label, "AUTO: auto choice from regions type\nFor Scalar based regions descriptor:\nBRUTEFORCEL2: L2 BruteForce matching\nANNL2: L2 Approximate Nearest Neighbor matching\nCASCADEHASHINGL2: L2 Cascade Hashing matching\nFASTCASCADEHASHINGL2: (default)\nL2 Cascade Hashing with precomputed hashed regions\n(faster than CASCADEHASHINGL2 but use more memory)\nFor Binary based descriptor:\nBRUTEFORCEHAMMING: BruteForce Hamming matching\n")
-        self.FM_nearest_matching_method.set(nearest_matching_methods[0])
+        self.FM_nearest_matching_method.set(nearest_matching_methods[1])
         nearest_matching_method = OptionMenu(row_fm3, self.FM_nearest_matching_method, *nearest_matching_methods)
 
         row_fm.pack(side=TOP, fill=X)
@@ -348,21 +348,21 @@ class ModuleSfM(Frame):
         row_bg = Frame(master)
 
         rotation_label = Label(row_bg, text="Rotation", width=15, anchor='w')
-        rotations = ["1", "2"]
+        rotations = ["", "1", "2"]
         CreateToolTip(rotation_label, "1 -> L1 minimization\n2 -> L2 minimization (default)")
-        self.GR_rotation.set(rotations[1])
+        self.GR_rotation.set(rotations[2])
         rotation = OptionMenu(row_bg, self.GR_rotation, *rotations)
 
         translation_label = Label(row_bg, text="Translation", width=15, anchor='w')
-        translations = ["1", "2", "3"]
+        translations = ["", "1", "2", "3"]
         CreateToolTip(translation_label, "1 -> L1 minimization\n2 -> L2 minimization of sum of squared Chordal distances\n3 -> SoftL1 minimization (default)")
-        self.GR_translation.set(translations[2])
+        self.GR_translation.set(translations[3])
         translation = OptionMenu(row_bg, self.GR_translation, *translations)
 
         refine_label = Label(row_bg, text="Refine Intrinsics", width=15, anchor='w')
-        refines = ["ADJUST_ALL", "NONE", "ADJUST_FOCAL_LENGTH", "ADJUST_PRINCIPAL_POINT", "ADJUST_DISTORTION", "ADJUST_FOCAL_LENGTH|ADJUST_PRINCIPAL_POINT", "ADJUST_FOCAL_LENGTH|ADJUST_DISTORTION", "ADJUST_PRINCIPAL_POINT|ADJUST_DISTORTION"]
+        refines = ["", "ADJUST_ALL", "NONE", "ADJUST_FOCAL_LENGTH", "ADJUST_PRINCIPAL_POINT", "ADJUST_DISTORTION", "ADJUST_FOCAL_LENGTH|ADJUST_PRINCIPAL_POINT", "ADJUST_FOCAL_LENGTH|ADJUST_DISTORTION", "ADJUST_PRINCIPAL_POINT|ADJUST_DISTORTION"]
         CreateToolTip(refine_label, "ADJUST_ALL -> refine all existing parameters (default)\nNONE -> intrinsic parameters are held as constant\nADJUST_FOCAL_LENGTH -> refine only the focal length\nADJUST_PRINCIPAL_POINT -> refine only the principal point position\nADJUST_DISTORTION -> refine only the distortion coefficient(s) (if any)\n-> NOTE: options can be combined thanks to '|'\nADJUST_FOCAL_LENGTH|ADJUST_PRINCIPAL_POINT\n-> refine the focal length & the principal point position\nADJUST_FOCAL_LENGTH|ADJUST_DISTORTION\n-> refine the focal length & the distortion coefficient(s) (if any)\nADJUST_PRINCIPAL_POINT|ADJUST_DISTORTION\n-> refine the principal point position & the distortion coefficient(s) (if any)")
-        self.GR_refine.set(refines[0])
+        self.GR_refine.set(refines[1])
         refine = OptionMenu(row_bg, self.GR_refine, *refines)
 
         row_bg.pack(side=TOP, fill=X)
@@ -381,7 +381,7 @@ class ModuleSfM(Frame):
         row_bi = Frame(master)
 
         refine_label = Label(row_bi, text="Refine Intrinsics", width=15, anchor='w')
-        refines = ["ADJUST_ALL", "NONE", "ADJUST_FOCAL_LENGTH", "ADJUST_PRINCIPAL_POINT", "ADJUST_DISTORTION",
+        refines = ["", "ADJUST_ALL", "NONE", "ADJUST_FOCAL_LENGTH", "ADJUST_PRINCIPAL_POINT", "ADJUST_DISTORTION",
                    "ADJUST_FOCAL_LENGTH|ADJUST_PRINCIPAL_POINT", "ADJUST_FOCAL_LENGTH|ADJUST_DISTORTION",
                    "ADJUST_PRINCIPAL_POINT|ADJUST_DISTORTION"]
         CreateToolTip(refine_label,
@@ -389,12 +389,12 @@ class ModuleSfM(Frame):
         self.IR_refine.set(refines[0])
         refine = OptionMenu(row_bi, self.IR_refine, *refines)
 
-        models = ["1", "2", "3", "4", "5"]
+        models = ["", "1", "2", "3", "4", "5"]
         camera_model_label = Label(row_bi, width=20, text='Camera model', anchor='w')
         camera_model = OptionMenu(row_bi, self.camera_model, *models)
         CreateToolTip(camera_model_label,
                       "Camera model type:\n1: Pinhole\n2: Pinhole radial 1\n3: Pinhole radial 3 (default)\n4: Pinhole 3 + Tangential 2\n5: Pinhole Fisheye")
-        self.camera_model.set(models[2])
+        self.camera_model.set(models[3])
 
         row_bi.pack(side=TOP, fill=X)
         refine_label.pack(side=LEFT)
