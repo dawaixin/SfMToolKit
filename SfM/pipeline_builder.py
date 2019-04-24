@@ -189,8 +189,6 @@ class PipelineBuilder(object):
                 compute_matches = compute_matches + " -l " + self.config_parameters["FM pair list"]
             if key == "FM nearest matching method":
                 compute_matches = compute_matches + " -n " + self.config_parameters["FM nearest matching method"]
-            if key == "FM guided matching":
-                compute_matches = compute_matches + " -m " + self.config_parameters["FM guided matching"]
 
         if "FM geometric model" in self.config_parameters.keys():
             compute_matches = compute_matches + " -g " + self.config_parameters["FM geometric model"]
@@ -212,8 +210,6 @@ class PipelineBuilder(object):
                     global_reconstruction = global_reconstruction + " -t " + self.config_parameters["GR translation averaging"]
                 if key == "GR refine inrinsics":
                     global_reconstruction = global_reconstruction + " -f " + self.config_parameters["GR refine intrinsics"]
-                if key == "GR prior usage":
-                    global_reconstruction = global_reconstruction + " -p " + self.config_parameters["GR prior usage averaging"]
 
             self.pipeline.append(global_reconstruction)
 
@@ -236,8 +232,6 @@ class PipelineBuilder(object):
                     incremental_reconstruction = incremental_reconstruction + " -t " + self.config_parameters["IR camera model"]
                 if key == "IR refine intrinsics":
                     incremental_reconstruction = incremental_reconstruction + " -f " + self.config_parameters["IR refine intrinsics"]
-                if key == "IR prior usage":
-                    incremental_reconstruction = incremental_reconstruction + " -p " + self.config_parameters["IR prior usage averaging"]
 
             self.pipeline.append(incremental_reconstruction)
 
@@ -358,10 +352,6 @@ class PipelineBuilder(object):
                 refine = refine + " --scales " + self.config_parameters["MF scales"]
             if key == "MF scale step":
                 refine = refine + " --scale-step " + self.config_parameters["MF scale step"]
-            if key == "MF reduce memory":
-                refine = refine + " --reduce-memory " + self.config_parameters["MF reduce memory"]
-            if key == "MF alternate pair":
-                refine = refine + " --alternate-pair " + self.config_parameters["MF alternate pair"]
 
         self.pipeline.append(refine)
 
@@ -381,8 +371,6 @@ class PipelineBuilder(object):
                 texture = texture + " --resolution-level " + self.config_parameters["TM resolution level"]
             if key == "TM outlier threshold":
                 texture = texture + " --outlier-thershold " + self.config_parameters["TM outlier threshold"]
-            if key == "TM empty colour":
-                texture = texture + " --empty-color " + self.config_parameters["TM empty clolour"]
             if key == "TM patch packing heuristic":
                 texture = texture + " --patch-packing-heuristic " + self.config_parameters["TM patch packing heuristic"]
 

@@ -1,7 +1,7 @@
 # THIS IS THE DEFAULT CONFIG FORMAT FILE
 # GENERAL PARAMETERS
-working directory : /media/raphael/SPPHDU3/RECONSTRUCTIONS/Quarry/
-image directory : /media/raphael/SPPHDU3/RECONSTRUCTIONS/Quarry/
+working directory : /home/raphael/Desktop/PROJECT/OPENMVG/ImageDataset_SceauxCastle-master
+image directory : /home/raphael/Desktop/PROJECT/OPENMVG/ImageDataset_SceauxCastle-master/images
 
 # DESIRED OUTPUTS
 pipeline type : 1
@@ -18,7 +18,7 @@ texture mesh : 1
 #######################
 
 # IMAGE LISTING
-IL focal : 4800
+IL focal :
 IL intrinsics :
 IL camera model :
 IL group camera model :
@@ -38,18 +38,15 @@ FM geometric model :
 FM video mode :
 FM pair list :
 FM nearest matching method :
-FM guided matching :
 
 # GLOBAL RECONSTRUCTION
 GR rotation averaging :
 GR translation averaging :
 GR refine intrinsics :
-GR prior usage :
 
 # INCREMENTAL RECONSTRUCTION
 IR camera model :
 IR refine intrinsics :
-IR prior usage :
 
 # ROBUST RECONSTRUCTION
 RR bundle adjustment :
@@ -82,12 +79,9 @@ MF close holes :
 MF max face area :
 MF scales :
 MF scale step :
-MF reduce memory :
-MF alternate pair :
 
 # MESH TEXTURING
 TM resolution level : 4
 TM min resolution : 360
 TM outlier threshold :
-TM empty colour :
 TM patch packing heuristic :

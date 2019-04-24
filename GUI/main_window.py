@@ -1,10 +1,10 @@
 from tkinter import *
 import sys
-import os
 from GUI.module_sfm import ModuleSfM
 from GUI.module_icp import ModuleICP
 from GUI.module_util import ModuleUtil
 from GUI.std_redirector import StdRedirector
+
 
 class MainWindow(object):
 
@@ -50,6 +50,7 @@ class MainWindow(object):
         self.console_outScrollbar.grid(row=0, column=1, sticky='nsew')
         self.console_outText['yscrollcommand'] = self.console_outScrollbar.set
 
+        sys.stdin = StdRedirector(self.console_outText)
         sys.stdout = StdRedirector(self.console_outText)
         sys.stderr = StdRedirector(self.console_outText)
 
@@ -64,13 +65,13 @@ class MainWindow(object):
         # CONFIGURE THE ICP MODULE #
         ############################
 
-        self.moduleICP = ModuleICP(self.mainWindow)
+        #self.moduleICP = ModuleICP(self.mainWindow)
 
         #############################
         # CONFIGURE THE UTIL MODULE #
         #############################
 
-        self.moduleUtil = ModuleUtil(self.mainWindow)
+        #self.moduleUtil = ModuleUtil(self.mainWindow)
 
         ###################
         # LAYOUT THE GRID #
@@ -79,5 +80,5 @@ class MainWindow(object):
         self.explanationText.grid(row=0, column=0, padx=5, pady=5)
         self.console_outFrame.grid(row=0, column=1, rowspan=4, padx=5, pady=5)
         self.moduleSfM.grid(row=1, column=0, padx=0, pady=0)
-        self.moduleICP.grid(row=2, column=0, padx=0, pady=0)
-        self.moduleUtil.grid(row=3, column=0, padx=0, pady=0)
+       # self.moduleICP.grid(row=2, column=0, padx=0, pady=0)
+       # self.moduleUtil.grid(row=3, column=0, padx=0, pady=0)
