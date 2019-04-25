@@ -95,8 +95,8 @@ class ModuleSfM(Frame):
 
 
     def build_form(self):
-        rowTitle = Text(self, height=1)
-        rowTitle.insert(END,"MODULE I - Structure from Motion")
+        rowTitle = Text(self, height=3)
+        rowTitle.insert(END,"\nMODULE I - Structure from Motion\n")
         rowTitle.config(state=DISABLED)
         rowTitle.pack(side=TOP, fill=X)
 

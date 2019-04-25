@@ -50,9 +50,9 @@ class MainWindow(object):
         self.console_outScrollbar.grid(row=0, column=1, sticky='nsew')
         self.console_outText['yscrollcommand'] = self.console_outScrollbar.set
 
-        sys.stdin = StdRedirector(self.console_outText)
-        sys.stdout = StdRedirector(self.console_outText)
-        sys.stderr = StdRedirector(self.console_outText)
+        #sys.stdin = StdRedirector(self.console_outText)
+        #sys.stdout = StdRedirector(self.console_outText)
+        #sys.stderr = StdRedirector(self.console_outText)
 
         ############################
         # CONFIGURE THE SFM MODULE #
@@ -65,20 +65,22 @@ class MainWindow(object):
         # CONFIGURE THE ICP MODULE #
         ############################
 
-        #self.moduleICP = ModuleICP(self.mainWindow)
+        self.moduleICP = ModuleICP(self.mainWindow)
+        self.moduleICP.build_form()
 
         #############################
         # CONFIGURE THE UTIL MODULE #
         #############################
 
-        #self.moduleUtil = ModuleUtil(self.mainWindow)
+        self.moduleUtil = ModuleUtil(self.mainWindow)
+        self.moduleUtil.build_form()
 
         ###################
         # LAYOUT THE GRID #
         ###################
 
         self.explanationText.grid(row=0, column=0, padx=5, pady=5)
-        self.console_outFrame.grid(row=0, column=1, rowspan=4, padx=5, pady=5)
+       #self.console_outFrame.grid(row=0, column=1, rowspan=4, padx=5, pady=5)
         self.moduleSfM.grid(row=1, column=0, padx=0, pady=0)
-       # self.moduleICP.grid(row=2, column=0, padx=0, pady=0)
-       # self.moduleUtil.grid(row=3, column=0, padx=0, pady=0)
+        self.moduleICP.grid(row=2, column=0, padx=0, pady=0)
+        self.moduleUtil.grid(row=3, column=0, padx=0, pady=0)
