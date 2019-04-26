@@ -28,7 +28,7 @@ class ModuleUtil(Frame):
 
     def build_form(self):
         rowTitle = Text(self, height=3)
-        rowTitle.insert(END, "\nMODULE II - Iterative Closest Point\n")
+        rowTitle.insert(END, "\nMODULE III - Utilities\n")
         rowTitle.config(state=DISABLED)
         rowTitle.pack(side=TOP, fill=X)
 
