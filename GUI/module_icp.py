@@ -1,7 +1,7 @@
 from tkinter import *
 from GUI.tooltip import CreateToolTip
 from tkinter.ttk import *
-from GUI.commands import load_file
+from GUI.commands import load_file, load_directory
 import subprocess
 
 class ModuleICP(Frame):
@@ -58,7 +58,7 @@ class ModuleICP(Frame):
         row1 = Frame(master)
         lab1 = Label(row1, width=15, text='Working Directory', anchor='w')
         self.working_directory = Entry(row1)
-        browse1 = Button(row1, text='Browse...', command=lambda: load_file(self.working_directory, self), width=10)
+        browse1 = Button(row1, text='Browse...', command=lambda: load_directory(self.working_directory, self), width=10)
         CreateToolTip(browse1, "Select the working directory for the ICP pipeline")
 
         row1.pack(side=TOP, fill=X)

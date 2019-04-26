@@ -2,7 +2,7 @@ from tkinter import *
 from GUI.tooltip import CreateToolTip
 from tkinter.ttk import *
 from util import Util
-from GUI.commands import load_file
+from GUI.commands import load_file, load_directory
 
 class ModuleUtil(Frame):
 
@@ -61,7 +61,7 @@ class ModuleUtil(Frame):
         lab2 = Label(row2, width=15, text='Output', anchor='w')
         self.output = Entry(row2)
         browse2 = Button(row2, text='Browse...', command=lambda: load_file(self.output, self), width=10)
-        CreateToolTip(browse2, "The reference point cloud")
+        CreateToolTip(browse2, "Select the Output file")
 
         row2.pack(side=TOP, fill=X)
         lab2.pack(side=LEFT)

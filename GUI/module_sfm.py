@@ -2,7 +2,7 @@ from tkinter import *
 from GUI.tooltip import CreateToolTip
 from tkinter.ttk import *
 from sfm import SfM
-from GUI.commands import load_file
+from GUI.commands import load_file, load_directory
 
 
 
@@ -160,7 +160,7 @@ class ModuleSfM(Frame):
         row1 = Frame(master)
         lab1 = Label(row1, width=15, text='Working Directory', anchor='w')
         self.working_dir = Entry(row1)
-        browse1 = Button(row1, text='Browse...', command=lambda: load_file(self.working_dir, self), width=10)
+        browse1 = Button(row1, text='Browse...', command=lambda: load_directory(self.working_dir, self), width=10)
         CreateToolTip(browse1, "Select the working directory for the SfM pipeline")
 
         row1.pack(side=TOP, fill=X)
@@ -171,7 +171,7 @@ class ModuleSfM(Frame):
         row2 = Frame(master)
         lab2 = Label(row2, width=15, text='Image Directory', anchor='w')
         self.image_dir = Entry(row2)
-        browse2 = Button(row2, text='Browse...', command=lambda: load_file(self.image_dir, self), width=10)
+        browse2 = Button(row2, text='Browse...', command=lambda: load_directory(self.image_dir, self), width=10)
         CreateToolTip(browse2, "Select the directory containing the images for the SfM pipeline")
 
         row2.pack(side=TOP, fill=X)
