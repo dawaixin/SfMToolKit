@@ -617,11 +617,7 @@ class ModuleSfM(Frame):
         self.TM_heuristic.pack(side=LEFT)
 
 
-    def run_module(self):
-        self.build_conf()
-        sfm = SfM("./sfm-conf.txt")
-        pipeline = sfm.build_pipeline()
-        sfm.execute_pipeline_alt(pipeline)
+
 
     def run_module(self):
         self.build_conf()

@@ -1,7 +1,6 @@
-# THIS IS THE DEFAULT CONFIG FORMAT FILE
 # GENERAL PARAMETERS
-working directory : /home/raphael/Desktop/PROJECT/OPENMVG/ImageDataset_SceauxCastle-master
-image directory : /home/raphael/Desktop/PROJECT/OPENMVG/ImageDataset_SceauxCastle-master/images
+working directory : /media/raphael/SPPHDU3/blender\ test/3/
+image directory : /media/raphael/SPPHDU3/blender\ test/3/
 
 # DESIRED OUTPUTS
 pipeline type : 1
@@ -10,78 +9,72 @@ colourised pointclouds : 1
 dense reconstruction : 1
 sparse mesh : 1
 dense mesh : 1
-refine mesh : 1
-texture mesh : 1
-
-#######################
-# PIPELINE PARAMETERS #
-#######################
+refine mesh : 0
+texture mesh : 0
 
 # IMAGE LISTING
-IL focal :
-IL intrinsics :
-IL camera model :
-IL group camera model :
-IL pose prior :
-IL XYZ coordinate system :
+IL focal : 2304
+IL intrinsics : 
+IL camera model : 3
+IL group camera model : 1
 
 # FEATURE DESCRIPTION
-FD recompute data :
-FD describer method :
-FD upright :
-FD describer preset :
+FD recompute data : 0
+FD describer method : SIFT
+FD upright : 0
+FD describer preset : NORMAL
 
 # FEATURE MATCHING
-FM recompute data :
-FM ratio :
-FM geometric model :
-FM video mode :
-FM pair list :
-FM nearest matching method :
+FM recompute data : 0
+FM ratio : 0.8
+FM geometric model : 
+FM video mode : 
+FM pair list : 
+FM nearest matching method : AUTO
 
 # GLOBAL RECONSTRUCTION
-GR rotation averaging :
-GR translation averaging :
-GR refine intrinsics :
+GR rotation averaging : 2
+GR translation averaging : 3
+GR refine intrinsics : ADJUST_ALL
 
 # INCREMENTAL RECONSTRUCTION
-IR camera model :
-IR refine intrinsics :
+IR camera model : 
+IR refine intrinsics : 
 
 # ROBUST RECONSTRUCTION
-RR bundle adjustment :
-RR residual threshold :
+RR bundle adjustment : 0
+RR residual threshold : 
 
 # POINT CLOUD DENSIFICATION
-DPC resolution level : 2
-DPC min resolution :
-DPC number of views :
-DPC number of views fuse :
-DPC estimate color :
-DPC estimate normals :
-DPC sample mesh :
+DPC resolution level : 
+DPC min resolution : 
+DPC number of views : 
+DPC number of views fuse : 
+DPC estimate color : 0
+DPC estimate normals : 1
+DPC sample mesh : 
 
 # MESH RECONSTRUCTION
-MR min point distance : 5
-MR quality factor :
-MR decimate :
-MR remove spurious :
-MR remove spikes :
-MR close holes :
-MR smooth :
+MR min point distance : 
+MR quality factor : 
+MR decimate : 
+MR remove spurious : 
+MR remove spikes : 1
+MR close holes : 
+MR smooth : 
 
 # MESH REFINEMENT
-MF resolution level : 4
-MF min resolution : 360
-MF max views :
-MF decimate :
-MF close holes :
+MF resolution level : 
+MF min resolution : 
+MF max views : 
+MF decimate : 
+MF close holes : 
 MF max face area :
-MF scales :
-MF scale step :
+MF scales : 
+MF scale step : 
 
 # MESH TEXTURING
-TM resolution level : 4
-TM min resolution : 360
-TM outlier threshold :
-TM patch packing heuristic :
+TM resolution level : 
+TM min resolution : 
+TM outlier threshold : 
+TM patch packing heuristic : 

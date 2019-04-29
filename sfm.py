@@ -24,6 +24,8 @@ class SfM(object):
     def execute_pipeline_alt(self, pipeline):
         for line in pipeline:
             print('\n')
+            # clear the console output
+            subprocess.run("clear", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
             output = subprocess.run(line, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
             print(output.stderr.decode('utf-8'))
             print(output.stdout.decode('utf-8'))
