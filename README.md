@@ -23,8 +23,22 @@ This repository relies on several extrenal tools, and has been tested on Ubuntu 
 - FFmpeg
 
 You need to install of these dependences prior to SfMToolKit.
-SfMToolKit contains a single module (the ICP) that requries its own installation. It can be installed through Cmake.
+
+Here are links to these libraries:
+https://github.com/openMVG/openMVG
+https://github.com/cdcseacave/openMVS
+https://github.com/ethz-asl/libpointmatcher
+https://www.sno.phy.queensu.ca/~phil/exiftool/
+https://www.ffmpeg.org/
+
+SfMToolKit contains a single module (the ICP) that requires its own installation. It can be installed through Cmake.
 
 ## Getting started
 
 Each module can be run independently through a python script or a console command (for the ICP). A GUI that controls it all is found in the __main__ file. 
+
+## Data Sets
+
+Data sets can be found online, and generated with youtube videos. Some useful datasets can be found following these links.
+https://www.sensefly.com/education/datasets/
+https://dronemapper.com/sample_data/
