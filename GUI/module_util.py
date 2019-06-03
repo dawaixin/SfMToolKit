@@ -117,11 +117,11 @@ class ModuleUtil(Frame):
         self.duration = Entry(row6)
         CreateToolTip(lab62, "Duration of the segment in seconds")
 
-        row5.pack(side=TOP, fill=X)
-        lab51.pack(side=LEFT)
-        self.framerate.pack(side=LEFT)
-        lab52.pack(side=LEFT)
-        self.resolution.pack(side=LEFT)
+        row6.pack(side=TOP, fill=X)
+        lab61.pack(side=LEFT)
+        self.start.pack(side=LEFT)
+        lab62.pack(side=LEFT)
+        self.duration.pack(side=LEFT)
 
     def run_module(self):
         self.build_conf()
